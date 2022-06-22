@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:newsfeeds/about_us_page.dart';
-import 'package:newsfeeds/head_line_page.dart';
-import 'package:newsfeeds/news_list_page.dart';
+import 'package:newsfeeds/view/screens/pages/about_us_page.dart';
+import 'package:newsfeeds/view/screens/pages/head_line_page.dart';
+import 'package:newsfeeds/view/screens/pages/news_list_page.dart';
 import 'package:newsfeeds/style/style.dart';
 
 class HomeScreen extends StatefulWidget {
