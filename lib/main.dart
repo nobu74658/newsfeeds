@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:newsfeeds/style/style.dart';
+import 'package:newsfeeds/viewmodels/head_line_viewmodel.dart';
 import 'package:newsfeeds/viewmodels/news_list_viewmodel.dart';
 import 'package:provider/provider.dart';
 import 'view/screens/home_screen.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider<NewsListViewModel>(
-        create: (context)=> NewsListViewModel(),
-        child: MyApp(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => NewsListViewModel(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => HeadLineViewModel(),
+        ),
+      ],
+      child: MyApp(),
     ),
   );
 }
@@ -20,10 +28,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'NewsFeed',
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        fontFamily: BoldFont
-      ),
+      theme: ThemeData(brightness: Brightness.dark, fontFamily: BoldFont),
       home: HomeScreen(),
     );
   }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:newsfeeds/view/components/article_tile_desc.dart';
+import 'package:newsfeeds/view/components/image_from_url.dart';
 
 import '../../models/model/news_model.dart';
 
@@ -24,17 +26,20 @@ class ArticleTile extends StatelessWidget {
               Expanded(
                 flex: 1,
                   //TODO:
-                  child: Container(),),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ImageFromUrl(imageUrl: article.urlToImage),
+                  ),),
               Expanded(
                 flex: 3,
                   //TODO
-                  child: Column(
-                    children: [
-                      Text(article.title ?? ""),
-                      Text(article.publishDate ?? ""),
-                      Text(article.description ?? ""),
-                    ],
-                  ),)
+                  child:Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ArticleTileDesc(
+                      article: article,
+                    ),
+                  ),
+              ),
             ],
           ),
         ),
